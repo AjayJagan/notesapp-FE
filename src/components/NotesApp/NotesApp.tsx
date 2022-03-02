@@ -25,7 +25,7 @@ const NotesApp: React.FC = () => {
 
     useEffect(() => {
         if (!notesList.length) {
-            axios.get('http://localhost:3000/getNotes').then((response) => {
+            axios.get('/api/getNotes').then((response) => {
                 //update the list of notes
                 setNotesList(response.data)
             }).catch((err) => {
@@ -35,7 +35,7 @@ const NotesApp: React.FC = () => {
     }, []);
 
     const handleDelete = (noteId: string) => {
-        axios.delete(`http://localhost:3000/deleteNote/${noteId}`).then((response) => {
+        axios.delete(`/api/deleteNote/${noteId}`).then((response) => {
             const updatedNotesList = [...notesList].filter((note) => note._id !== noteId);
             setNotesList(updatedNotesList);
         }).catch(error => {

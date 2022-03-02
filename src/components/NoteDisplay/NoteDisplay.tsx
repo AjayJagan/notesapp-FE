@@ -8,7 +8,7 @@ const NoteDisplay = () => {
     const [note, setNote] = useState(null);
     useEffect(() => {
         if (noteId) {
-            axios.get(`http://localhost:3000/getNote/${noteId}`).then(response => setNote(response.data)).catch((e) => console.log(e));
+            axios.get(`/api/getNote/${noteId}`).then(response => setNote(response.data)).catch((e) => console.log(e));
         }
     }, [])
     if (note) {

@@ -23,7 +23,7 @@ const AddNote: React.FC<IAddNote> = ({ setNotesList }) => {
 
     const addNote = () => {
         if (title.length > 0 && note.length > 0) {
-            axios.post('http://localhost:3000/addNote', {
+            axios.post('/api/addNote', {
                 title,
                 note
             }).then((response) => {
